@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/typescript-node
 {
-  "name": "Node.js & TypeScript",
+  "name": "BrittlQ Frontend",
   "build": {
     "dockerfile": "Dockerfile",
     // Update 'VARIANT' to pick a Node version: 16, 14, 12.
@@ -12,8 +12,8 @@
     }
   },
   "runArgs": [
-    "--label traefik.http.routers.brittlq.rule=Host(`brittlq-front.traefik.localhost`)",
-    "--label traefik.http.services.bq-frontend.loadbalancer.server.port=8080"
+    "-l traefik.http.routers.brittlq.rule=Host(`brittlq-front.traefik.localhost`)",
+    "-l traefik.http.services.bq-frontend.loadbalancer.server.port=8080"
   ],
 
   // Set *default* container specific settings.json values on container create.
