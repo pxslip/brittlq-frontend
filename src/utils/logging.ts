@@ -1,8 +1,10 @@
-function log(...things: any[]): void {
+type Loggable = unknown | string | object | number | Array<Loggable>;
+
+function log(...things: Loggable[]): void {
   things.forEach((thing) => console.log(thing));
 }
 
-function error(...things: any[]): void {
+function error(...things: Loggable[]): void {
   things.forEach((thing) => console.error(thing));
 }
 

@@ -5,8 +5,8 @@ import { UndefinedString } from '.';
 
 export const useTwitchStore = defineStore('twitch', {
   state: () => ({
-    clientId: process.env.VUE_APP_TWITCH_CLIENT_ID as UndefinedString,
-    redirectUri: process.env.VUE_APP_TWITCH_REDIRECT_URI as UndefinedString,
+    clientId: process.env.VUE_APP_TWITCH_CLIENT_ID as string,
+    redirectUri: process.env.VUE_APP_TWITCH_REDIRECT_URI as string,
     claims: '{"id_token":{"email":null,"email_verified":null }}',
     forceVerify: 'true',
     scope: 'chat:read chat:edit',
@@ -15,14 +15,20 @@ export const useTwitchStore = defineStore('twitch', {
   }),
   getters: {
     twitchOauthUri(state): string {
-      const url = new URL('/oauth2/authorize', 'https://id.twitch.tv');
-      url.searchParams.set('client_id', state.clientId!);
-      url.searchParams.set('redirect_uri', state.redirectUri!);
-      url.searchParams.set('response_type', state.responseType);
-      url.searchParams.set('scope', state.scope);
-      url.searchParams.set('force_verify', state.forceVerify);
-      url.searchParams.set('claims', encodeURIComponent(state.claims));
-      return url.toString();
+      if (state.clientId !== null || state.redirectUri !== null) {
+        const url = new URL('/oauth2/authorize', 'https://id.twitch.tv');
+        url.searchParams.set('client_id', state.clientId);
+        url.searchParams.set('redirect_uri', state.redirectUri);
+        url.searchParams.set('response_type', state.responseType);
+        url.searchParams.set('scope', state.scope);
+        url.searchParams.set('force_verify', state.forceVerify);
+        url.searchParams.set('claims', encodeURIComponent(state.claims));
+        return url.toString();
+      } else {
+        throw new Error(
+          'The twitch client ID and redirect uri must be set in the environment'
+        );
+      }
     },
     hasToken(state): boolean {
       return !!state.token;

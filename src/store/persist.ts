@@ -2,21 +2,6 @@ import { PiniaPluginContext } from 'pinia';
 
 type StorageName = 'localStorage' | 'sessionStorage' | 'custom';
 type Persister = Pick<Storage, 'getItem' | 'setItem'>;
-declare module 'pinia' {
-  export interface DefineStoreOptionsBase<S, Store> {
-    persist?: {
-      enabled: boolean;
-      storage?: StorageName;
-      key?: string;
-      reducer?: (state: S) => Partial<S>;
-      persister?: Persister;
-      hydrater?: (
-        storedState: string,
-        context: PiniaPluginContext<string, S>
-      ) => Partial<S>;
-    };
-  }
-}
 
 function persistMethod(
   storageType: StorageName = 'sessionStorage',
