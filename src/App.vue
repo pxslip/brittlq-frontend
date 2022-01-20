@@ -1,34 +1,39 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="flex flex-col h-screen">
+    <navbar />
+    <section class="flex-1 flex flex-row">
+      <router-view class="flex-1" v-slot="{ Component }">
+        <template v-if="Component">
+          <transition mode="out-in">
+            <keep-alive>
+              <suspense>
+                <component :is="Component"></component>
+                <template #fallback>
+                  <div>Loading...</div>
+                </template>
+              </suspense>
+            </keep-alive>
+          </transition>
+        </template>
+      </router-view>
+      <chat-messages class="border-l border-gray-900 transition-width w-1/3" />
+    </section>
   </div>
-  <router-view />
 </template>
+
+<script lang="ts">
+import Navbar from './components/layout/Navbar.vue';
+import ChatMessages from './components/chat/Messages.vue';
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'App',
+  components: { Navbar, ChatMessages },
+});
+</script>
 
 <style>
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

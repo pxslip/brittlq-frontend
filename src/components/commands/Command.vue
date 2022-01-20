@@ -50,6 +50,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import {
+  CommandProps,
   CommandType,
   CommandTypeSettingsComponents,
   Role,
@@ -70,8 +71,9 @@ export default defineComponent({
   setup(props, { attrs }) {
     const commandsStore = useCommandsStore();
     const command = commandsStore.commands[props.index];
-    const updateCommandProperty = (property: string, value: string) => {
+    const updateCommandProperty = (property: CommandProps, value: string) => {
       if (command) {
+        // TODO: this is being supressed by supressImplicitAnyIndexErrors in tsconfig, revisit command type inheritance
         command[property] = value;
       }
     };

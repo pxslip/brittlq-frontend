@@ -30,7 +30,7 @@
 <script lang="ts">
 import QueueEntry from '@/components/queue/QueueEntry.vue';
 import QueueControls from '@/components/queue/QueueControls.vue';
-import { computed, defineComponent, onUnmounted } from '@vue/runtime-core';
+import { computed, defineComponent, onUnmounted } from 'vue';
 import { useQueueStore } from '@/store/queue';
 
 export default defineComponent({

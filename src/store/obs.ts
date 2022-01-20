@@ -3,8 +3,8 @@ import { defineStore } from 'pinia';
 import logging from '../utils/logging';
 import { OBSCommand, OBSCommandActions } from './commands';
 
-type ARG<T> = T extends (requestType: infer U, ...args: any) => any ? U : T;
-type Action = ARG<ObsWebSocket['send']>;
+// type ARG<T> = T extends (requestType: infer U, ...args: any) => any ? U : T;
+// type Action = ARG<ObsWebSocket['send']>;
 
 export const useObsStore = defineStore('obs', {
   state: () => ({
@@ -37,7 +37,7 @@ export const useObsStore = defineStore('obs', {
           });
           connection.on('ConnectionClosed', this.disconnect);
           connection.on('Exiting', this.disconnect);
-          connection.on('ConnectionOpened', (data) => {
+          connection.on('ConnectionOpened', () => {
             logging.log(
               `Connected to OBS websocket server on ${this.address}:${this.port}`
             );
@@ -75,7 +75,7 @@ export const useObsStore = defineStore('obs', {
         );
         if (sourceProps) {
           sourceProps.visible = !sourceProps.visible;
-          const resp = await this.connection?.send('SetSceneItemProperties', {
+          await this.connection?.send('SetSceneItemProperties', {
             item: { name: sourceName, id: sourceId },
             ...sourceProps,
           });
@@ -87,7 +87,9 @@ export const useObsStore = defineStore('obs', {
     executeCommand(command: OBSCommand) {
       switch (command.action) {
         case OBSCommandActions.ToggleSourceVisibility:
-          this.toggleSourceVisibility(command.args.name!, command.args.id!);
+          if (command.args.name && command.args.id) {
+            this.toggleSourceVisibility(command.args.name, command.args.id);
+          }
           break;
       }
     },

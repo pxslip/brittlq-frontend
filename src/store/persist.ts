@@ -1,4 +1,3 @@
-import logging from '@/utils/logging';
 import { PiniaPluginContext } from 'pinia';
 
 type StorageName = 'localStorage' | 'sessionStorage' | 'custom';

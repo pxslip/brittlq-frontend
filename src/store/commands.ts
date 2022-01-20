@@ -48,6 +48,7 @@ export interface OBSCommand extends BaseCommand {
 }
 
 export type Command = ChatCommand | OBSCommand;
+export type CommandProps = keyof (ChatCommand & OBSCommand);
 
 export const CommandTypeSettingsComponents = {
   [CommandType.Chat]: defineAsyncComponent(
@@ -82,7 +83,7 @@ export const useCommandsStore = defineStore('commands', {
         case CommandType.Chat: {
           const twitchChat = useTwitchChatStore();
           const newMessage = command.message
-            .replaceAll('${user}', messageData.userstate['display-name']!)
+            .replaceAll('${user}', messageData?.userstate['display-name'] ?? '')
             .replaceAll('${channel}', messageData.channel);
           twitchChat.sendMessage(messageData.channel, newMessage);
           break;
