@@ -3075,7 +3075,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],
       [
         "loader-utils",
-        "npm:1.4.0"
+        "npm:1.4.2"
       ],
       [
         "locate-path",
@@ -10858,7 +10858,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/babel__core", null],
             ["@types/webpack", null],
             ["find-cache-dir", "npm:3.3.2"],
-            ["loader-utils", "npm:1.4.0"],
+            ["loader-utils", "npm:1.4.2"],
             ["make-dir", "npm:3.1.0"],
             ["schema-utils", "npm:2.7.1"],
             ["webpack", "virtual:61d0b5ff256ee8e1288b470e25100bf10c9665ee9f072a117e50999255cbe94935d6f8aa3fb1642f03cd805b0a8434d46f07a2b4e8b5bc23910fe4cff91f35f6#npm:5.66.0"]
@@ -11506,7 +11506,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/webpack", null],
             ["buffer-json", "npm:2.0.0"],
             ["find-cache-dir", "npm:3.3.2"],
-            ["loader-utils", "npm:1.4.0"],
+            ["loader-utils", "npm:1.4.2"],
             ["mkdirp", "npm:0.5.5"],
             ["neo-async", "npm:2.6.2"],
             ["schema-utils", "npm:2.7.1"],
@@ -17734,10 +17734,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["loader-utils", [
-        ["npm:1.4.0", {
-          "packageLocation": "./.yarn/cache/loader-utils-npm-1.4.0-a56254a277-d150b15e7a.zip/node_modules/loader-utils/",
+        ["npm:1.4.2", {
+          "packageLocation": "./.yarn/cache/loader-utils-npm-1.4.2-b4537b2f88-eb6fb622ef.zip/node_modules/loader-utils/",
           "packageDependencies": [
-            ["loader-utils", "npm:1.4.0"],
+            ["loader-utils", "npm:1.4.2"],
             ["big.js", "npm:5.2.2"],
             ["emojis-list", "npm:3.0.0"],
             ["json5", "npm:1.0.1"]
@@ -23543,7 +23543,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["cache-loader", "virtual:36e19df79412d4f4c6b72d146f22b6630cdc2b762f4c934600f00983b3d8bf9c37b2aed453048b175e47024ea003d46249d38846fecd44a387b566456e19a420#npm:4.1.0"],
             ["css-loader", "virtual:144b0bff7fbb5b3d567b0c7bf71369c8f73be102c91e245ca800e587431ce3655ca9028fcf25344afbc69d8e257429ac1ed9729a8d1bd9631d97392f45568aea#npm:6.5.1"],
             ["hash-sum", "npm:1.0.2"],
-            ["loader-utils", "npm:1.4.0"],
+            ["loader-utils", "npm:1.4.2"],
             ["vue-hot-reload-api", "npm:2.3.4"],
             ["vue-style-loader", "npm:4.1.3"],
             ["vue-template-compiler", null],
@@ -23610,7 +23610,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["vue-style-loader", "npm:4.1.3"],
             ["hash-sum", "npm:1.0.2"],
-            ["loader-utils", "npm:1.4.0"]
+            ["loader-utils", "npm:1.4.2"]
           ],
           "linkType": "HARD",
         }]
