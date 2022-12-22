@@ -4635,7 +4635,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],
       [
         "vm2",
-        "npm:3.9.5"
+        "npm:3.9.13"
       ],
       [
         "vue",
@@ -13234,7 +13234,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ast-types", "npm:0.13.4"],
             ["escodegen", "npm:1.14.3"],
             ["esprima", "npm:4.0.1"],
-            ["vm2", "npm:3.9.5"]
+            ["vm2", "npm:3.9.13"]
           ],
           "linkType": "HARD",
         }]
@@ -23380,10 +23380,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["vm2", [
-        ["npm:3.9.5", {
-          "packageLocation": "./.yarn/cache/vm2-npm-3.9.5-31b998d9a4-d83dbe929c.zip/node_modules/vm2/",
+        ["npm:3.9.13", {
+          "packageLocation": "./.yarn/cache/vm2-npm-3.9.13-eed5836e61-ee82c130a9.zip/node_modules/vm2/",
           "packageDependencies": [
-            ["vm2", "npm:3.9.5"]
+            ["vm2", "npm:3.9.13"],
+            ["acorn", "npm:8.7.0"],
+            ["acorn-walk", "npm:8.2.0"]
           ],
           "linkType": "HARD",
         }]
